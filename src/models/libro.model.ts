@@ -1,26 +1,44 @@
-import { CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn, ManyToOne, JoinColumn } from "typeorm";
 
-@Entity('libro', {schema:'ventas'})
 
-export class LibroEntity{
+@Entity('libros', { schema: 'ventas' })
+export class LibroEntity {
     @PrimaryGeneratedColumn('uuid')
-    id:string;
+    id: string;
+
     @CreateDateColumn({
         name: 'create_at',
         type: 'timestamp',
-        default: () => 'CURRERNT_TIMESTAMP',
+        default: () => 'CURRENT_TIMESTAMP',
     })
     createAt: Date;
+
     @UpdateDateColumn({
         name: 'update_at',
         type: 'timestamp',
-        default: () => 'CURRERNT_TIMESTAMP',
+        default: () => 'CURRENT_TIMESTAMP',
     })
-    UpdateAt: Date;
+    updateAt: Date;
+
     @DeleteDateColumn({
         name: 'delete_at',
         type: 'timestamp',
         nullable: true,
     })
-    DeleteAt: Date;
+    deleteAt: Date;
+
+    @Column('varchar', {
+        name: 'titulo',
+        nullable: false,
+        comment: 'título del libro',
+    })
+    titulo: string;
+
+    @Column('varchar', {
+        name: 'descripcion',
+        nullable: true,
+        comment: 'descripción del libro',
+    })
+    descripcion: string;
+
 }
