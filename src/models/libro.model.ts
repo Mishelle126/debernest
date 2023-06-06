@@ -1,4 +1,5 @@
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn, ManyToOne, JoinColumn } from "typeorm";
+import { AutorEntity } from "./autor.models";
 
 
 @Entity('libros', { schema: 'ventas' })
@@ -40,5 +41,7 @@ export class LibroEntity {
         comment: 'descripción del libro',
     })
     descripcion: string;
+
+    autor:AutorEntity;
 
 }
