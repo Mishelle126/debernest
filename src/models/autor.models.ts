@@ -4,7 +4,7 @@ import { LibroEntity } from "./libro.model";
 
 @Entity('autores', { schema: 'ventas' })
 export class AutorEntity {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn('uuid')                  //Alessandro Cisneros //Mishel Abendaño
   id: string;
 
   @CreateDateColumn({
@@ -42,6 +42,6 @@ export class AutorEntity {
   })
   descripcion: string;
 
-  @OneToMany(() => LibroEntity, libro => libro.autor)
+  @OneToMany(() => LibroEntity, libro => libro.autor)    //Alessandro Cisneros //Mishel Abendaño
   libros: LibroEntity[];
 }

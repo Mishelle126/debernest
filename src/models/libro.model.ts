@@ -8,8 +8,8 @@ export class LibroEntity {
 
   @CreateDateColumn({
     name: 'create_at',
-    type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP',
+    type: 'timestamp',                             
+    default: () => 'CURRENT_TIMESTAMP',            //Alessandro Cisneros //Mishel Abendaño
   })
   createAt: Date;
 
@@ -39,9 +39,9 @@ export class LibroEntity {
     nullable: true,
     comment: 'descripción del libro',
   })
-  descripcion: string;
+  descripcion: string;                                //Alessandro Cisneros //Mishel Abendaño
 
-  @ManyToOne(() => AutorEntity, autor => autor.libros)
+  @ManyToOne(() => AutorEntity, autor => autor.libros)        
   @JoinColumn({ name: 'autor_id' }) // Nombre de la columna que almacena el id del autor en la tabla libros
-  autor: AutorEntity;
+  autor: AutorEntity;  
 }
