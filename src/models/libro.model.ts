@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn, ManyToOne, JoinColumn } from "typeorm";
-import { AutorEntity } from "./autor.models";
+import { AutorEntity } from "./autor.model";
 
 @Entity('libros', { schema: 'ventas' })
 export class LibroEntity {
